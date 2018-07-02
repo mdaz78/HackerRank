@@ -21,3 +21,25 @@ Sample Output 0
 2
 
 */
+
+function birthdayCakeCandles(ar) {
+  ar = ar.sort((a, b) => b - a)
+  let i = 0, j = 1;
+  let candlesBlown = 1;
+  let candlesWillBlow = true;
+  while(candlesWillBlow) {
+    if (j > ar.length) {
+      candlesWillBlow = false;
+    }
+    if (ar[i] == ar[j]) {
+      candlesBlown += 1;
+    } else {
+      return candlesBlown;
+    }
+    j += 1;
+  }
+  return candlesBlown;
+}
+
+result = birthdayCakeCandles([3, 3, 3, 3])
+console.log(result)
