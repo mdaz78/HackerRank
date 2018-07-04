@@ -18,3 +18,28 @@ Sample Output 0
 19:05:45
 
 */
+
+function timeConversion(s) {
+  time_arr = s.split(":");
+  hour = time_arr[0];
+  minute = time_arr[1];
+  seconds = time_arr[2].slice(0, 2);
+  format = time_arr[2].slice(-2);
+
+  if (format == "PM") {
+    if (hour == 12) {
+      return s.slice(0, s.length - 2);
+    }
+    hour = parseInt(hour, 10) + 12;
+    return (`${hour}:${minute}:${seconds}`);
+  } else if (format == "AM") {
+    if (hour == 12) {
+      hour = "00";
+      return (`${hour}:${minute}:${seconds}`);
+    }
+    return s.slice(0, s.length - 2);
+  }
+}
+
+result = timeConversion("1:01:01PM")
+console.log(result);
