@@ -43,3 +43,33 @@ Sample Output
 1
 
 */
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+  let arrayOfSamHouse = [];
+  let totalNoOfApples = 0;
+  let totalNoOfOranges = 0;
+  // populate the array of sam's house
+  for (let i = s; i <= t; i++) {
+    arrayOfSamHouse.push(i)
+  }
+
+  // check if apple falls on sam's house
+  for (let i = 0; i < apples.length; i++) {
+    if (arrayOfSamHouse.includes(a + apples[i])) {
+      totalNoOfApples += 1;
+    }
+  }
+
+  // check if orange falls on sam's house
+  for (let i = 0; i < oranges.length; i++) {
+    if (arrayOfSamHouse.includes(b + oranges[i])) {
+      totalNoOfOranges += 1;
+    }
+  }
+
+  // print the outputs
+  console.log(totalNoOfApples);
+  console.log(totalNoOfOranges);
+}
+
+countApplesAndOranges(7, 11, 5, 15, [-2, 2, 1], [5, -6]);
